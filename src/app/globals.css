@@ -26,6 +26,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), "Trebuchet MS", sans-serif;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 html {
@@ -100,6 +101,18 @@ h6 {
   pointer-events: none;
 }
 
+.hero-bg-layer {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.hero-cinematic-overlay {
+  background:
+    linear-gradient(112deg, rgba(44, 27, 18, 0.94) 0%, rgba(44, 27, 18, 0.84) 37%, rgba(23, 61, 36, 0.64) 68%, rgba(23, 61, 36, 0.18) 100%),
+    linear-gradient(0deg, rgba(15, 46, 27, 0.64) 0%, rgba(15, 46, 27, 0.12) 38%, rgba(15, 46, 27, 0) 64%);
+}
+
 @media (max-width: 1023px) {
   .heritage-side-strip {
     display: none;
@@ -111,5 +124,27 @@ h6 {
 
   .heritage-border-bottom {
     height: 10px;
+  }
+
+  .hero-bg-layer {
+    background-position: center;
+  }
+
+  .hero-cinematic-overlay {
+    background:
+      linear-gradient(140deg, rgba(44, 27, 18, 0.94) 0%, rgba(44, 27, 18, 0.82) 46%, rgba(23, 61, 36, 0.56) 100%),
+      linear-gradient(0deg, rgba(15, 46, 27, 0.74) 0%, rgba(15, 46, 27, 0.28) 40%, rgba(15, 46, 27, 0) 72%);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero-bg-layer {
+    background-position: center center;
+  }
+
+  .hero-cinematic-overlay {
+    background:
+      linear-gradient(158deg, rgba(44, 27, 18, 0.96) 0%, rgba(44, 27, 18, 0.86) 48%, rgba(23, 61, 36, 0.58) 100%),
+      linear-gradient(0deg, rgba(15, 46, 27, 0.8) 0%, rgba(15, 46, 27, 0.34) 46%, rgba(15, 46, 27, 0) 78%);
   }
 }
