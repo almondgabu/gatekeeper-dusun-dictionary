@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f1e6;
-  --foreground: #1a1a1a;
+  --background: #F7EEDD;
+  --foreground: #3A2417;
 }
 
 @theme inline {
@@ -14,23 +14,32 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #f8f1e6;
-    --foreground: #1a1a1a;
+    --background: #F7EEDD;
+    --foreground: #3A2417;
   }
 }
 
 body {
   position: relative;
-  background:
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(46, 94, 62, 0.08), transparent 30%),
-    var(--background);
+  margin: 0;
+  background: var(--background);
   color: var(--foreground);
-  font-family: "Georgia", "Times New Roman", serif;
+  font-family: var(--font-geist-sans), "Trebuchet MS", sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  letter-spacing: -0.02em;
 }
 
 ::selection {
@@ -53,8 +62,54 @@ html {
   z-index: 1;
 }
 
+.home-layout {
+  position: relative;
+  background:
+    radial-gradient(circle at 4% 5%, rgba(212, 160, 23, 0.14), transparent 25%),
+    radial-gradient(circle at 92% 16%, rgba(23, 61, 36, 0.08), transparent 30%),
+    #F7EEDD;
+}
+
+.home-layout::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 18px;
+  background-image:
+    linear-gradient(45deg, rgba(212, 160, 23, 0.45) 25%, transparent 25%, transparent 75%, rgba(212, 160, 23, 0.45) 75%),
+    linear-gradient(-45deg, rgba(212, 160, 23, 0.45) 25%, transparent 25%, transparent 75%, rgba(212, 160, 23, 0.45) 75%);
+  background-size: 12px 12px;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heritage-border-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 14px;
+  background-image:
+    linear-gradient(45deg, rgba(212, 160, 23, 0.42) 25%, transparent 25%, transparent 75%, rgba(212, 160, 23, 0.42) 75%),
+    linear-gradient(-45deg, rgba(212, 160, 23, 0.42) 25%, transparent 25%, transparent 75%, rgba(212, 160, 23, 0.42) 75%);
+  background-size: 16px 16px;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
 @media (max-width: 1023px) {
   .heritage-side-strip {
     display: none;
+  }
+
+  .home-layout::before {
+    display: none;
+  }
+
+  .heritage-border-bottom {
+    height: 10px;
   }
 }

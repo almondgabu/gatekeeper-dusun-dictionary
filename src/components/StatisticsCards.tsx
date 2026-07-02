@@ -5,24 +5,28 @@ type Statistic = {
 };
 
 const DEFAULT_STATS: Statistic[] = [
-  { label: 'Dictionary Words', value: '8057', detail: 'Indexed Dusun entries' },
+  { label: 'Dictionary Words', value: '8,057', detail: 'Indexed Dusun entries' },
   { label: 'Phrase Categories', value: '22', detail: 'Heritage groupings' },
   { label: 'Common Phrases', value: '218', detail: 'Curated phrase records' },
 ];
 
 export default function StatisticsCards({ stats = DEFAULT_STATS }: { stats?: Statistic[] }) {
   return (
-    <div className="grid gap-3 sm:grid-cols-3">
-      {stats.map((stat) => (
+    <section className="grid gap-4 md:grid-cols-3">
+      {stats.map((stat, index) => (
         <div
           key={stat.label}
-          className="rounded-2xl border border-[#d8c3a0] bg-[#f8f1e6] p-4 shadow-[0_10px_28px_rgba(44,27,18,0.08)]"
+          className="rounded-[22px] border border-[#D4A017]/45 bg-[#FFF7E8] p-5 shadow-[0_12px_28px_rgba(16,46,106,0.1)]"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#7f5f37]">{stat.label}</p>
-          <p className="mt-2 text-3xl font-semibold text-[#2C1B12]">{stat.value}</p>
-          {stat.detail && <p className="mt-1 text-sm text-[#665644]">{stat.detail}</p>}
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#D4A017]/50 bg-[#FFFDF8] text-[#173D24]">
+            {index + 1}
+          </span>
+          <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#8A6837]">{stat.label}</p>
+          <p className="mt-2 text-4xl font-semibold leading-none text-[#173D24]">{stat.value}</p>
+          <div className="mt-3 h-[2px] w-14 rounded-full bg-[#D4A017]/75" aria-hidden="true" />
+          {stat.detail && <p className="mt-2 text-sm text-[#6C5844]">{stat.detail}</p>}
         </div>
       ))}
-    </div>
+    </section>
   );
 }
