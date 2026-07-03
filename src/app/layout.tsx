@@ -15,8 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://gatekeeper-dusun-dictionary.vercel.app'),
   title: 'Gatekeeper Dusun Dictionary V1',
-  description:
-    'Preserving the Language, Culture and Heritage of Borneo. A heritage-focused digital dictionary containing over 8,000 Dusun words and more than 200 common phrases for learners, researchers and the Dusun community.',
+  description: 'Preserving the Language, Culture and Heritage of Borneo.',
   keywords: [
     'Dusun Dictionary',
     'Dusun Language',
@@ -37,7 +36,7 @@ export const metadata: Metadata = {
   publisher: 'Borneo Land Gatekeeper',
   openGraph: {
     title: 'Gatekeeper Dusun Dictionary V1',
-    description: 'Heritage Dusun Dictionary with over 8,000 words and more than 200 common phrases.',
+    description: 'Preserving the Language, Culture and Heritage of Borneo.',
     url: 'https://gatekeeper-dusun-dictionary.vercel.app',
     siteName: 'Gatekeeper Dusun Dictionary V1',
     type: 'website',
