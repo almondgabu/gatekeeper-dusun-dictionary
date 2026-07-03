@@ -1,12 +1,24 @@
+import { AudioLines, ChevronRight, Languages, MonitorPlay, SpellCheck, Users, type LucideIcon } from 'lucide-react';
 import Link from 'next/link';
 
 const ROADMAP_ITEMS = [
-  'Grammar Guide',
-  'Interactive Lessons',
-  'Pronunciation Audio',
-  'AI Translation Assistant',
-  'Community Contributions',
-];
+  { label: 'Grammar Guide', icon: SpellCheck },
+  { label: 'Interactive Lessons', icon: MonitorPlay },
+  { label: 'Pronunciation Audio', icon: AudioLines },
+  { label: 'AI Translation Assistant', icon: Languages },
+  { label: 'Community Contributions', icon: Users },
+] as const satisfies Array<{ label: string; icon: LucideIcon }>;
+
+function RoadmapItem({ label, icon: Icon }: { label: string; icon: LucideIcon }) {
+  return (
+    <li className="group flex items-center gap-3 text-sm text-[#3A2417]">
+      <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[#D4A017]/40 bg-[#FFF7E8] text-[#173D24] transition-transform duration-300 group-hover:scale-105">
+        <Icon size={16} strokeWidth={1.9} />
+      </span>
+      <span>{label}</span>
+    </li>
+  );
+}
 
 export default function RoadmapPreview() {
   return (
@@ -31,18 +43,16 @@ export default function RoadmapPreview() {
           </p>
           <Link
             href="/product-roadmap"
-            className="mt-5 inline-flex items-center rounded-full border border-[#C7922B] bg-[#D4A017] px-5 py-2.5 text-sm font-semibold text-[#2C1B12] transition-colors hover:bg-[#E2B541]"
+            className="group mt-5 inline-flex items-center gap-2 rounded-full border border-[#C7922B] bg-[#D4A017] px-5 py-2.5 text-sm font-semibold text-[#2C1B12] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E2B541] hover:shadow-[0_10px_24px_rgba(16,46,106,0.16)]"
           >
             View Roadmap
+            <ChevronRight size={17} strokeWidth={2} className="transition-transform duration-300 group-hover:translate-x-0.5" />
           </Link>
         </div>
 
         <ul className="space-y-2.5 rounded-2xl border border-[#D4A017]/35 bg-[#FFFDF8] p-4">
           {ROADMAP_ITEMS.map((item) => (
-            <li key={item} className="flex items-center gap-3 text-sm text-[#3A2417]">
-              <span className="h-2.5 w-2.5 rounded-full bg-[#173D24]" aria-hidden="true" />
-              {item}
-            </li>
+            <RoadmapItem key={item.label} label={item.label} icon={item.icon} />
           ))}
         </ul>
       </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowLeft, BookOpen, Languages, Search, SearchCheck, SlidersHorizontal } from 'lucide-react';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { DictionaryEntry, SearchMode } from '@/types/dictionary';
@@ -229,12 +230,16 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
 
                 <button
                   type="submit"
-                  className="h-10 rounded-lg border border-[#D4AF37]/60 bg-[#D4AF37] px-4 text-sm font-semibold text-[#2C1B12] transition-colors hover:bg-[#e1c25f]"
+                  className="group inline-flex h-10 items-center gap-2 rounded-lg border border-[#D4AF37]/60 bg-[#D4AF37] px-4 text-sm font-semibold text-[#2C1B12] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#e1c25f] hover:shadow-[0_10px_22px_rgba(16,46,106,0.18)]"
                 >
+                  <Search size={18} strokeWidth={1.9} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                   Search
                 </button>
 
-                <div className="inline-flex rounded-lg border border-[#D4AF37]/35 bg-[#F8F1E6] p-1">
+                <div className="inline-flex items-center gap-1 rounded-lg border border-[#D4AF37]/35 bg-[#F8F1E6] p-1">
+                  <span className="inline-flex items-center text-[#173D24]" aria-hidden="true">
+                    <SlidersHorizontal size={16} strokeWidth={1.9} />
+                  </span>
                   <button
                     type="button"
                     onClick={() => setPrecision('exact')}
@@ -243,6 +248,7 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
                       precision === 'exact' ? 'bg-[#102E6A] text-white' : 'text-[#4a3a2d]',
                     ].join(' ')}
                   >
+                    <SearchCheck size={14} strokeWidth={1.9} className="mr-1 inline" />
                     Exact
                   </button>
                   <button
@@ -253,11 +259,15 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
                       precision === 'contains' ? 'bg-[#102E6A] text-white' : 'text-[#4a3a2d]',
                     ].join(' ')}
                   >
+                    <Search size={14} strokeWidth={1.9} className="mr-1 inline" />
                     Contains
                   </button>
                 </div>
 
-                <div className="inline-flex rounded-lg border border-[#D4AF37]/35 bg-[#F8F1E6] p-1">
+                <div className="inline-flex items-center gap-1 rounded-lg border border-[#D4AF37]/35 bg-[#F8F1E6] p-1">
+                  <span className="inline-flex items-center text-[#173D24]" aria-hidden="true">
+                    <SlidersHorizontal size={16} strokeWidth={1.9} />
+                  </span>
                   <button
                     type="button"
                     onClick={() => setScope('words')}
@@ -266,6 +276,7 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
                       scope === 'words' ? 'bg-[#2E5E3E] text-white' : 'text-[#4a3a2d]',
                     ].join(' ')}
                   >
+                    <BookOpen size={14} strokeWidth={1.9} className="mr-1 inline" />
                     Words
                   </button>
                   <button
@@ -276,6 +287,7 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
                       scope === 'all' ? 'bg-[#2E5E3E] text-white' : 'text-[#4a3a2d]',
                     ].join(' ')}
                   >
+                    <Languages size={14} strokeWidth={1.9} className="mr-1 inline" />
                     All
                   </button>
                 </div>
@@ -310,7 +322,7 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
                 </div>
               ) : (
                 <div>
-                  <h2 className="text-xl font-semibold text-[#2C1B12]">Search results for &quot;{query.trim()}&quot;</h2>
+                  <h2 className="flex items-center gap-2 text-xl font-semibold text-[#2C1B12]"><SearchCheck size={20} strokeWidth={1.9} className="text-[#173D24]" />Search results for &quot;{query.trim()}&quot;</h2>
                   <p className="text-sm text-[#5f5548]">
                     {results.length === RESULT_LIMIT ? `Showing first ${RESULT_LIMIT} results` : resultCountText}
                   </p>
@@ -319,8 +331,9 @@ export default function DictionaryApp({ initialQuery = '' }: DictionaryAppProps)
 
               <button
                 onClick={handleReset}
-                className="rounded-md border border-[#2E5E3E]/35 bg-[#edf4ef] px-3 py-1.5 text-sm font-medium text-[#2E5E3E] hover:bg-[#dfeae1]"
+                className="group inline-flex items-center gap-2 rounded-md border border-[#2E5E3E]/35 bg-[#edf4ef] px-3 py-1.5 text-sm font-medium text-[#2E5E3E] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#dfeae1] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]"
               >
+                <ArrowLeft size={16} strokeWidth={1.9} className="transition-transform duration-300 group-hover:-translate-x-0.5" />
                 Clear
               </button>
             </div>

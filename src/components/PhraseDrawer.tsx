@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowLeft, ExternalLink, FolderOpen, Volume2, type LucideIcon } from 'lucide-react';
 import { useEffect } from 'react';
 import { CommonPhrase } from '@/types/common-phrases';
 
@@ -13,14 +14,18 @@ interface FieldRowProps {
   label: string;
   value: string | null | undefined;
   mono?: boolean;
+  icon?: LucideIcon;
 }
 
-function FieldRow({ label, value, mono }: FieldRowProps) {
+function FieldRow({ label, value, mono, icon: Icon }: FieldRowProps) {
   if (!value) return null;
 
   return (
     <div className="flex flex-col gap-0.5 border-b border-[#e0d4bf] py-3 last:border-0">
-      <span className="text-xs font-semibold uppercase tracking-wider text-[#7a5a2e]">{label}</span>
+      <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#7a5a2e]">
+        {Icon ? <Icon size={15} strokeWidth={1.9} /> : null}
+        {label}
+      </span>
       {mono ? (
         <span className="break-all font-mono text-sm text-[#4f3c2f]">{value}</span>
       ) : (
@@ -79,12 +84,10 @@ export default function PhraseDrawer({ phrase, categoryName, onClose }: PhraseDr
 
             <button
               onClick={onClose}
-              className="rounded-md p-1 text-[#EEDBA8] transition-colors hover:bg-[#503224] hover:text-white"
+                className="inline-flex items-center gap-1.5 rounded-md p-1 text-[#EEDBA8] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#503224] hover:text-white"
               aria-label="Close drawer"
             >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
+                <ArrowLeft size={20} strokeWidth={1.9} />
             </button>
           </div>
         </div>
@@ -95,8 +98,8 @@ export default function PhraseDrawer({ phrase, categoryName, onClose }: PhraseDr
             <FieldRow label="English" value={phrase.english} />
             <FieldRow label="Malay" value={phrase.malay} />
             <FieldRow label="Sabahan" value={phrase.sabahan} />
-            <FieldRow label="Pronunciation" value={phrase.pronunciation} />
-            <FieldRow label="Category" value={categoryName} />
+            <FieldRow label="Pronunciation" value={phrase.pronunciation} icon={Volume2} />
+            <FieldRow label="Category" value={categoryName} icon={FolderOpen} />
             <FieldRow label="Source" value={source} />
             <FieldRow label="Source URL" value={phrase.source_url} mono />
           </div>
@@ -116,11 +119,9 @@ export default function PhraseDrawer({ phrase, categoryName, onClose }: PhraseDr
               href={phrase.source_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-6 mt-4 flex items-center gap-2 text-sm text-[#102E6A] hover:text-[#0d2555] hover:underline"
+              className="group mb-6 mt-4 flex items-center gap-2 text-sm text-[#102E6A] transition-all duration-300 hover:-translate-y-0.5 hover:text-[#0d2555] hover:underline"
             >
-              <svg className="h-4 w-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <ExternalLink size={17} strokeWidth={1.9} className="shrink-0 text-[#C89B2C] transition-transform duration-300 group-hover:translate-x-0.5" />
               View source
             </a>
           )}

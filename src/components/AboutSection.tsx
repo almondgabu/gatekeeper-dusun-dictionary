@@ -1,3 +1,5 @@
+import { Cpu, Landmark, Target, Telescope, UserRound } from 'lucide-react';
+
 export default function AboutSection() {
   return (
     <section
@@ -22,21 +24,21 @@ export default function AboutSection() {
           </div>
 
           <div className="rounded-2xl border border-[#dfcfb4] bg-[#fff9f1] p-5">
-            <h3 className="text-lg font-semibold text-[#2C1B12]">Mission</h3>
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-[#2C1B12]"><Target size={19} strokeWidth={1.9} className="text-[#173D24]" />Mission</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#5e5144]">
               To make the Dusun language easier to learn, preserve and share with future generations.
             </p>
           </div>
 
           <div className="rounded-2xl border border-[#dfcfb4] bg-[#fff9f1] p-5">
-            <h3 className="text-lg font-semibold text-[#2C1B12]">Vision</h3>
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-[#2C1B12]"><Telescope size={19} strokeWidth={1.9} className="text-[#173D24]" />Vision</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#5e5144]">
               To become the leading digital language preservation platform for the indigenous languages of Borneo.
             </p>
           </div>
 
           <div className="rounded-2xl border border-[#dfcfb4] bg-[#fff9f1] p-5 md:col-span-2">
-            <h3 className="text-lg font-semibold text-[#2C1B12]">Platform Architect</h3>
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-[#2C1B12]"><UserRound size={19} strokeWidth={1.9} className="text-[#173D24]" />Platform Architect</h3>
             <p className="mt-2 text-sm leading-relaxed text-[#5e5144]">
               Almond Gabu envisioned and architected the platform as a long-term initiative to preserve the Dusun language through modern technology.
             </p>
@@ -45,7 +47,7 @@ export default function AboutSection() {
 
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-2xl border border-[#dfcfb4] bg-[#fff9f1] p-5">
-            <h3 className="text-lg font-semibold text-[#2C1B12]">Technology</h3>
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-[#2C1B12]"><Cpu size={19} strokeWidth={1.9} className="text-[#173D24]" />Technology</h3>
             <ul className="mt-2 space-y-1 text-sm text-[#5e5144]">
               <li>Next.js</li>
               <li>TypeScript</li>
@@ -56,7 +58,7 @@ export default function AboutSection() {
           </div>
 
           <div className="rounded-2xl border border-[#D4AF37]/35 bg-[#2C1B12] p-5 text-[#F8F1E6]">
-            <p className="text-xs uppercase tracking-[0.24em] text-[#D4AF37]">Version</p>
+            <p className="flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-[#D4AF37]"><Landmark size={16} strokeWidth={1.9} className="text-[#C89B2C]" />Owner</p>
             <p className="mt-2 text-lg font-semibold">Gatekeeper Dusun Dictionary V1</p>
             <p className="text-sm text-[#f0dfc5]">Heritage Edition</p>
           </div>

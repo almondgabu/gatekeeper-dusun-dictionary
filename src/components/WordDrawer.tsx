@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowLeft, BadgeCheck, BookMarked, ExternalLink, Languages, Volume2, type LucideIcon } from 'lucide-react';
 import { useEffect } from 'react';
 import { DictionaryEntry } from '@/types/dictionary';
 
@@ -12,13 +13,15 @@ interface FieldRowProps {
   label: string;
   value: string | null | undefined;
   mono?: boolean;
+  icon?: LucideIcon;
 }
 
-function FieldRow({ label, value, mono }: FieldRowProps) {
+function FieldRow({ label, value, mono, icon: Icon }: FieldRowProps) {
   if (!value) return null;
   return (
     <div className="flex flex-col gap-0.5 border-b border-[#e0d4bf] py-3 last:border-0">
-      <span className="text-xs font-semibold uppercase tracking-wider text-[#7a5a2e]">
+      <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-[#7a5a2e]">
+        {Icon ? <Icon size={15} strokeWidth={1.9} /> : null}
         {label}
       </span>
       {mono ? (
@@ -80,24 +83,17 @@ export default function WordDrawer({ entry, onClose }: WordDrawerProps) {
             </div>
             <div className="mt-1 flex shrink-0 items-center gap-2">
               {entry.verified && (
-                <span className="rounded-full border border-[#2E5E3E]/50 bg-[#2E5E3E]/20 px-2 py-0.5 text-xs font-medium text-[#daf0df]">
+                <span className="inline-flex items-center gap-1 rounded-full border border-[#2E5E3E]/50 bg-[#2E5E3E]/20 px-2 py-0.5 text-xs font-medium text-[#daf0df]">
+                  <BadgeCheck size={14} strokeWidth={1.9} />
                   Verified
                 </span>
               )}
               <button
                 onClick={onClose}
-                className="rounded-md p-1 text-[#EEDBA8] transition-colors hover:bg-[#503224] hover:text-white"
+                className="inline-flex items-center rounded-md p-1 text-[#EEDBA8] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#503224] hover:text-white"
                 aria-label="Close drawer"
               >
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <ArrowLeft size={20} strokeWidth={1.9} />
               </button>
             </div>
           </div>
@@ -105,13 +101,13 @@ export default function WordDrawer({ entry, onClose }: WordDrawerProps) {
 
         <div className="flex-1 overflow-y-auto px-6 py-3">
           <div className="divide-y divide-slate-100">
-            <FieldRow label="Dusun"         value={entry.dusun}         />
+            <FieldRow label="Word Details"  value={entry.dusun}         icon={BookMarked} />
             <FieldRow label="English"       value={entry.english}       />
             <FieldRow label="Malay"         value={entry.malay}         />
             <FieldRow label="Sabahan"       value={entry.sabahan}       />
             <FieldRow label="Part of Speech" value={entry.part_of_speech} />
-            <FieldRow label="Alternative"   value={entry.alternative}   />
-            <FieldRow label="Pronunciation" value={entry.pronunciation} />
+            <FieldRow label="Alternative"   value={entry.alternative}   icon={Languages} />
+            <FieldRow label="Pronunciation" value={entry.pronunciation} icon={Volume2} />
             <FieldRow label="Dialect"       value={entry.dialect}       />
             <FieldRow label="Notes"         value={entry.notes}         />
             <FieldRow label="Example"       value={entry.example}       />
@@ -129,11 +125,9 @@ export default function WordDrawer({ entry, onClose }: WordDrawerProps) {
               href={entry.source_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="mb-6 mt-4 flex items-center gap-2 text-sm text-[#102E6A] hover:text-[#0d2555] hover:underline"
+              className="group mb-6 mt-4 flex items-center gap-2 text-sm text-[#102E6A] transition-all duration-300 hover:-translate-y-0.5 hover:text-[#0d2555] hover:underline"
             >
-              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <ExternalLink size={17} strokeWidth={1.9} className="w-4 shrink-0 text-[#C89B2C] transition-transform duration-300 group-hover:translate-x-0.5" />
               View on source site
             </a>
           )}

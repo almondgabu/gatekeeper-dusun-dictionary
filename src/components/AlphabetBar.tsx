@@ -1,3 +1,5 @@
+import { ArrowLeft } from 'lucide-react';
+
 const LETTERS = ['A', 'B', 'D', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'W', 'Y'] as const;
 
 interface AlphabetBarProps {
@@ -27,8 +29,9 @@ export default function AlphabetBar({ activeLetter, onSelect, onClear }: Alphabe
         ))}
         <button
           onClick={onClear}
-          className="ml-auto rounded-md border border-[#2E5E3E]/45 bg-[#edf3ee] px-3 py-1.5 text-sm font-medium text-[#2E5E3E] hover:bg-[#dfeae1]"
+          className="group ml-auto inline-flex items-center gap-2 rounded-md border border-[#2E5E3E]/45 bg-[#edf3ee] px-3 py-1.5 text-sm font-medium text-[#2E5E3E] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#dfeae1] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]"
         >
+          <ArrowLeft size={16} strokeWidth={1.9} className="transition-transform duration-300 group-hover:-translate-x-0.5" />
           Clear
         </button>
       </div>

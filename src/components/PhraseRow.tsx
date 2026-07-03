@@ -1,5 +1,6 @@
 'use client';
 
+import { Copy, Star, Volume2 } from 'lucide-react';
 import { CommonPhrase } from '@/types/common-phrases';
 
 interface PhraseRowProps {
@@ -9,32 +10,6 @@ interface PhraseRowProps {
   onToggleFavourite: (phraseId: string) => void;
   isFavourite: boolean;
   isCopied: boolean;
-}
-
-function SpeakerIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M11 5L6 9H3v6h3l5 4V5z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15.5 8.5a5 5 0 010 7" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function CopyIcon() {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M8 8h10v10H8z" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M6 16H5a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v1" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function StarIcon({ filled }: { filled: boolean }) {
-  return (
-    <svg className="h-4 w-4" viewBox="0 0 24 24" fill={filled ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2">
-      <path d="M12 17.3l-6.18 3.25 1.18-6.88L2 8.42l6.91-1L12 1.16l3.09 6.26 6.91 1-5 5.25 1.18 6.88z" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
 }
 
 export default function PhraseRow({ phrase, onOpen, onCopy, onToggleFavourite, isFavourite, isCopied }: PhraseRowProps) {
@@ -88,13 +63,13 @@ export default function PhraseRow({ phrase, onOpen, onCopy, onToggleFavourite, i
               onCopy(phrase);
             }}
             className={[
-              'inline-flex h-10 items-center gap-2 rounded-full border px-3 text-sm font-medium transition-colors',
+              'group inline-flex h-10 items-center gap-2 rounded-full border px-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5',
               isCopied
                 ? 'border-[#2E5E3E]/45 bg-[#edf4ef] text-[#2E5E3E]'
-                : 'border-[#d4bf9d] bg-[#fffaf0] text-[#4d3c2f] hover:bg-[#f3eadb]',
+                : 'border-[#d4bf9d] bg-[#fffaf0] text-[#4d3c2f] hover:bg-[#f3eadb] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]',
             ].join(' ')}
           >
-            <CopyIcon />
+            <Copy size={18} strokeWidth={1.9} className="text-[#173D24] transition-transform duration-300 group-hover:translate-x-0.5" />
             {isCopied ? 'Copied' : 'Copy'}
           </button>
 
@@ -105,13 +80,13 @@ export default function PhraseRow({ phrase, onOpen, onCopy, onToggleFavourite, i
               onToggleFavourite(phrase.id);
             }}
             className={[
-              'inline-flex h-10 items-center gap-2 rounded-full border px-3 text-sm font-medium transition-colors',
+              'group inline-flex h-10 items-center gap-2 rounded-full border px-3 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5',
               isFavourite
                 ? 'border-[#D4AF37]/60 bg-[#D4AF37] text-[#2C1B12]'
-                : 'border-[#d4bf9d] bg-[#fffaf0] text-[#4d3c2f] hover:bg-[#f3eadb]',
+                : 'border-[#d4bf9d] bg-[#fffaf0] text-[#4d3c2f] hover:bg-[#f3eadb] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]',
             ].join(' ')}
           >
-            <StarIcon filled={isFavourite} />
+            <Star size={18} strokeWidth={1.9} fill={isFavourite ? 'currentColor' : 'none'} className="transition-transform duration-300 group-hover:translate-x-0.5" />
             {isFavourite ? 'Saved' : 'Favourite'}
           </button>
 
@@ -121,7 +96,7 @@ export default function PhraseRow({ phrase, onOpen, onCopy, onToggleFavourite, i
             title="Audio coming soon"
             className="inline-flex h-10 items-center gap-2 rounded-full border border-[#d4bf9d] bg-[#fffaf0] px-3 text-sm font-medium text-[#8b7766] opacity-80"
           >
-            <SpeakerIcon />
+            <Volume2 size={18} strokeWidth={1.9} />
           </button>
         </div>
       </div>

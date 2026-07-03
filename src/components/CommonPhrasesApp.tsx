@@ -1,5 +1,6 @@
 'use client';
 
+import { ArrowLeft, FolderOpen, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { CommonPhrase, CommonPhraseCategory } from '@/types/common-phrases';
 import PhraseCategoryBar from '@/components/PhraseCategoryBar';
@@ -113,21 +114,24 @@ export default function CommonPhrasesApp({
         <section className="rounded-2xl border border-[#d7c8ae] bg-[#F8F1E6] p-4 shadow-[0_8px_26px_rgba(44,27,18,0.08)] sm:p-6">
           <div className="mb-4 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <h2 className="text-2xl font-semibold text-[#2C1B12]">Category navigation</h2>
+              <h2 className="flex items-center gap-2 text-2xl font-semibold text-[#2C1B12]"><FolderOpen size={22} strokeWidth={1.9} className="text-[#173D24]" />Category navigation</h2>
               <p className="text-sm text-[#5f5548]">Select a category to filter the phrase list.</p>
             </div>
 
             <label className="w-full max-w-md">
               <span className="sr-only">Search common phrases</span>
-              <input
-                type="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="Search Dusun, English, or Malay"
-                className="h-12 w-full rounded-xl border border-[#d5c4a8] bg-[#fffaf0] px-4 text-sm text-[#2C1B12] outline-none ring-[#D4AF37] focus:ring-2"
-                autoComplete="off"
-                spellCheck={false}
-              />
+              <span className="relative block">
+                <Search size={18} strokeWidth={1.9} className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-[#8A6837]" />
+                <input
+                  type="search"
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                  placeholder="Search Dusun, English, or Malay"
+                  className="h-12 w-full rounded-xl border border-[#d5c4a8] bg-[#fffaf0] pr-4 pl-10 text-sm text-[#2C1B12] outline-none ring-[#D4AF37] focus:ring-2"
+                  autoComplete="off"
+                  spellCheck={false}
+                />
+              </span>
             </label>
           </div>
 
@@ -167,8 +171,9 @@ export default function CommonPhrasesApp({
               <button
                 type="button"
                 onClick={() => setQuery('')}
-                className="rounded-md border border-[#2E5E3E]/35 bg-[#edf4ef] px-3 py-1.5 text-sm font-medium text-[#2E5E3E] hover:bg-[#dfeae1]"
+                className="group inline-flex items-center gap-2 rounded-md border border-[#2E5E3E]/35 bg-[#edf4ef] px-3 py-1.5 text-sm font-medium text-[#2E5E3E] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#dfeae1] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]"
               >
+                <ArrowLeft size={16} strokeWidth={1.9} className="transition-transform duration-300 group-hover:-translate-x-0.5" />
                 Clear search
               </button>
             )}

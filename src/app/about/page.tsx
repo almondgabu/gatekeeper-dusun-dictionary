@@ -1,3 +1,4 @@
+import { Cpu, Landmark, Target, Telescope, UserRound } from 'lucide-react';
 import Sidebar from '@/components/Sidebar';
 
 export default function AboutPage() {
@@ -20,7 +21,7 @@ export default function AboutPage() {
 
           <section className="grid gap-4 md:grid-cols-2">
             <article className="rounded-[28px] border border-[#d8c4a4] bg-[#f8f1e6] p-6 shadow-[0_14px_40px_rgba(44,27,18,0.08)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]">Mission</p>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]"><Target size={17} strokeWidth={1.9} className="text-[#173D24]" />Mission</p>
               <h2 className="mt-2 text-2xl font-semibold text-[#2C1B12]">Preserve language access</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#5e5144]">
                 Make Dusun vocabulary and phrase knowledge easy to search, learn and share across generations.
@@ -28,7 +29,7 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-[28px] border border-[#d8c4a4] bg-[#f8f1e6] p-6 shadow-[0_14px_40px_rgba(44,27,18,0.08)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]">Vision</p>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]"><Telescope size={17} strokeWidth={1.9} className="text-[#173D24]" />Vision</p>
               <h2 className="mt-2 text-2xl font-semibold text-[#2C1B12]">Lead digital preservation</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#5e5144]">
                 Become a trusted platform for Dusun learning, cultural continuity and future AI-assisted language tools.
@@ -36,7 +37,7 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-[28px] border border-[#d8c4a4] bg-[#f8f1e6] p-6 shadow-[0_14px_40px_rgba(44,27,18,0.08)] md:col-span-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]">Platform Architect</p>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]"><UserRound size={17} strokeWidth={1.9} className="text-[#173D24]" />Platform Architect</p>
               <h2 className="mt-2 text-2xl font-semibold text-[#2C1B12]">Almond Gabu</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#5e5144]">
                 The platform direction, structure and long-term vision were shaped around a practical digital home for the Dusun language.
@@ -44,7 +45,7 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-[28px] border border-[#d8c4a4] bg-[#f8f1e6] p-6 shadow-[0_14px_40px_rgba(44,27,18,0.08)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]">Technology</p>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#7f5f37]"><Cpu size={17} strokeWidth={1.9} className="text-[#173D24]" />Technology</p>
               <h2 className="mt-2 text-2xl font-semibold text-[#2C1B12]">Built with modern web tools</h2>
               <ul className="mt-3 space-y-2 text-sm text-[#5e5144]">
                 <li>Next.js</li>
@@ -55,7 +56,7 @@ export default function AboutPage() {
             </article>
 
             <article className="rounded-[28px] border border-[#D4AF37]/40 bg-[#2C1B12] p-6 text-[#F8F1E6] shadow-[0_14px_40px_rgba(44,27,18,0.12)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#D4AF37]">Version</p>
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#D4AF37]"><Landmark size={17} strokeWidth={1.9} className="text-[#C89B2C]" />Owner</p>
               <h2 className="mt-2 text-2xl font-semibold">Gatekeeper Dusun Dictionary V1</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#f0dfc5]">Heritage Edition</p>
             </article>

@@ -1,5 +1,6 @@
 'use client';
 
+import { BookOpen, ExternalLink, GraduationCap, House, Info, Map, MessagesSquare, type LucideIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,41 +8,45 @@ import { usePathname } from 'next/navigation';
 type NavItem = {
   label: string;
   href: string;
-  icon: string;
+  icon: LucideIcon;
 };
 
 const primaryItems: NavItem[] = [
-  { label: 'Home', href: '/', icon: 'H' },
-  { label: 'Dictionary', href: '/dictionary', icon: 'D' },
-  { label: 'Common Phrases', href: '/common-phrases', icon: 'C' },
-  { label: 'Learn Dusun', href: '/product-roadmap#learning', icon: 'L' },
-  { label: 'Product Roadmap', href: '/product-roadmap', icon: 'P' },
-  { label: 'About', href: '/about', icon: 'A' },
+  { label: 'Home', href: '/', icon: House },
+  { label: 'Dictionary', href: '/dictionary', icon: BookOpen },
+  { label: 'Common Phrases', href: '/common-phrases', icon: MessagesSquare },
+  { label: 'Learn Dusun', href: '/product-roadmap#learning', icon: GraduationCap },
+  { label: 'Product Roadmap', href: '/product-roadmap', icon: Map },
+  { label: 'About', href: '/about', icon: Info },
 ];
 
-function SidebarLink({ label, href, active, icon }: { label: string; href: string; active: boolean; icon: string }) {
+function SidebarLink({ label, href, active, icon: Icon }: { label: string; href: string; active: boolean; icon: LucideIcon }) {
   return (
     <Link
       href={href}
       className={[
-        'group flex items-center justify-between rounded-2xl border px-3.5 py-3 text-sm transition-all',
+        'group flex items-center justify-between rounded-2xl border px-3.5 py-3 text-sm transition-all duration-300 hover:-translate-y-0.5',
         active
           ? 'border-[#C7922B] bg-[#D4A017] text-[#2C1B12] shadow-[0_10px_20px_rgba(16,46,106,0.15)]'
-          : 'border-[#E5D1A9] bg-[#FFF7E8] text-[#3A2417] hover:-translate-y-0.5 hover:border-[#D4A017] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]',
+          : 'border-[#E5D1A9] bg-[#FFF7E8] text-[#3A2417] hover:border-[#D4A017] hover:shadow-[0_8px_18px_rgba(16,46,106,0.12)]',
       ].join(' ')}
     >
       <span className="flex items-center gap-3">
         <span
           className={[
-            'inline-flex h-7 w-7 items-center justify-center rounded-full border text-[11px] font-semibold',
-            active ? 'border-[#2C1B12]/30 bg-[#FFF7E8]/40' : 'border-[#D4A017]/45 bg-[#FFFDF8] text-[#5A3A1E]',
+            'inline-flex h-8 w-8 items-center justify-center rounded-full border transition-colors',
+            active
+              ? 'border-[#2C1B12]/30 bg-[#FFF7E8]/40 text-[#2C1B12]'
+              : 'border-[#D4A017]/45 bg-[#FFFDF8] text-[#173D24] group-hover:text-[#C89B2C]',
           ].join(' ')}
         >
-          {icon}
+          <Icon size={18} strokeWidth={1.9} />
         </span>
         <span className="font-medium">{label}</span>
       </span>
-      <span className={active ? 'text-[#2C1B12]' : 'text-[#8A6837] transition-colors group-hover:text-[#5A3A1E]'}>&#8250;</span>
+      <span className={active ? 'text-[#2C1B12]' : 'text-[#8A6837] transition-all group-hover:translate-x-0.5 group-hover:text-[#5A3A1E]'}>
+        <ExternalLink size={17} strokeWidth={1.9} />
+      </span>
     </Link>
   );
 }
