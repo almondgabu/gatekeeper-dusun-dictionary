@@ -59,7 +59,7 @@ export default function AboutSection() {
 
           <div className="rounded-2xl border border-[#D4AF37]/35 bg-[#2C1B12] p-5 text-[#F8F1E6]">
             <p className="flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-[#D4AF37]"><Landmark size={16} strokeWidth={1.9} className="text-[#C89B2C]" />Owner</p>
-            <p className="mt-2 text-lg font-semibold">Gatekeeper Dusun Dictionary V1</p>
+            <p className="mt-2 text-lg font-semibold">Borneo Land Gatekeeper</p>
             <p className="text-sm text-[#f0dfc5]">Heritage Edition</p>
           </div>
         </div>

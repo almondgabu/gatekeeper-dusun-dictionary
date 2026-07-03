@@ -104,7 +104,7 @@ export default function CommonPhrasesApp({
             </div>
             <div className="rounded-2xl border border-[#D4AF37]/30 bg-[#3a2419] px-4 py-3">
               <p className="text-[11px] uppercase tracking-[0.22em] text-[#D4AF37]">Owner</p>
-              <p className="mt-1 text-lg font-semibold text-[#F8F1E6]">Gatekeeper Dusun Dictionary V1</p>
+              <p className="mt-1 text-lg font-semibold text-[#F8F1E6]">Borneo Land Gatekeeper</p>
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@ export default function AboutPage() {
 
             <article className="rounded-[28px] border border-[#D4AF37]/40 bg-[#2C1B12] p-6 text-[#F8F1E6] shadow-[0_14px_40px_rgba(44,27,18,0.12)]">
               <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.26em] text-[#D4AF37]"><Landmark size={17} strokeWidth={1.9} className="text-[#C89B2C]" />Owner</p>
-              <h2 className="mt-2 text-2xl font-semibold">Gatekeeper Dusun Dictionary V1</h2>
+              <h2 className="mt-2 text-2xl font-semibold">Borneo Land Gatekeeper</h2>
               <p className="mt-3 text-sm leading-relaxed text-[#f0dfc5]">Heritage Edition</p>
             </article>
           </section>
