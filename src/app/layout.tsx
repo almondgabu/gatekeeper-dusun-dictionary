@@ -13,11 +13,58 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Gatekeeper Dusun Dictionary V1',
-    template: '%s | Gatekeeper Dusun Dictionary V1',
+  metadataBase: new URL('https://gatekeeper-dusun-dictionary.vercel.app'),
+  title: 'Gatekeeper Dusun Dictionary V1',
+  description:
+    'Preserving the Language, Culture and Heritage of Borneo. A heritage-focused digital dictionary containing over 8,000 Dusun words and more than 200 common phrases for learners, researchers and the Dusun community.',
+  keywords: [
+    'Dusun Dictionary',
+    'Dusun Language',
+    'Sabah',
+    'Borneo',
+    'Kadazan Dusun',
+    'Common Phrases',
+    'Native Language',
+    'Language Learning',
+    'Malaysia',
+    'Heritage',
+    'Culture',
+    'Translation',
+    'Gatekeeper Dusun Dictionary',
+  ],
+  authors: [{ name: 'Almond Gabu', url: 'https://gatekeeper-dusun-dictionary.vercel.app' }],
+  creator: 'Almond Gabu',
+  publisher: 'Borneo Land Gatekeeper',
+  openGraph: {
+    title: 'Gatekeeper Dusun Dictionary V1',
+    description: 'Heritage Dusun Dictionary with over 8,000 words and more than 200 common phrases.',
+    url: 'https://gatekeeper-dusun-dictionary.vercel.app',
+    siteName: 'Gatekeeper Dusun Dictionary V1',
+    type: 'website',
+    locale: 'en_MY',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Gatekeeper Dusun Dictionary V1',
+      },
+    ],
   },
-  description: 'Gatekeeper Dusun Dictionary V1 is a heritage Dusun language platform for dictionary and common phrases.',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gatekeeper Dusun Dictionary V1',
+    description: 'Preserving the Language, Culture and Heritage of Borneo.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
