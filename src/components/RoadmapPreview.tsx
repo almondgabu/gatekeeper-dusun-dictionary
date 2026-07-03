@@ -1,4 +1,5 @@
 import { AudioLines, ChevronRight, Languages, MonitorPlay, SpellCheck, Users, type LucideIcon } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const ROADMAP_ITEMS = [
@@ -24,14 +25,15 @@ export default function RoadmapPreview() {
   return (
     <section className="rounded-[30px] border border-[#D4A017]/45 bg-[#FFF7E8] p-5 shadow-[0_14px_34px_rgba(16,46,106,0.1)] sm:p-7">
       <div className="grid gap-6 lg:grid-cols-[220px_minmax(0,1fr)_270px] lg:items-center">
-        <div
-          className="h-40 rounded-2xl border border-[#D4A017]/30 bg-[#FFFDF8]"
-          style={{
-            backgroundImage:
-              'repeating-linear-gradient(60deg, rgba(23,61,36,0.08) 0, rgba(23,61,36,0.08) 2px, transparent 2px, transparent 14px), repeating-linear-gradient(-60deg, rgba(212,160,23,0.16) 0, rgba(212,160,23,0.16) 1px, transparent 1px, transparent 16px)',
-          }}
-          aria-hidden="true"
-        />
+        <div className="group relative h-40 overflow-hidden rounded-2xl border border-[#D4A017]/30 bg-[#FFFDF8] shadow-[0_10px_22px_rgba(16,46,106,0.12)] transition-all duration-300 hover:shadow-[0_14px_28px_rgba(16,46,106,0.16)] sm:h-44 lg:h-52">
+          <Image
+            src="/images/roadmap-heritage.png"
+            alt="Traditional Dusun house overlooking rice fields with Mount Kinabalu"
+            fill
+            sizes="(max-width: 1023px) 100vw, 220px"
+            className="object-cover object-[center_58%] transition-transform duration-300 group-hover:scale-[1.03] sm:object-center lg:object-[center_55%]"
+          />
+        </div>
 
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#8A6837]">Product Roadmap</p>
